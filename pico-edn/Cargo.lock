@@ -9,41 +9,20 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d468802bab17cbc0cc575e9b053f41e72aa36bfa6b7f55e3529ffa43161b97fa"
 
 [[package]]
-name = "critical-section"
-version = "1.1.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7059fff8937831a9ae6f0fe4d658ffabf58f2ca96aa9dec1c889f936f705f216"
-
-[[package]]
 name = "edn-rs"
 version = "0.17.4"
-source = "git+https://github.com/edn-rs/edn-rs.git?branch=no_std#3fb72b01c6664a8e0454ad6dcac2c86027e49522"
+source = "git+https://github.com/edn-rs/edn-rs.git?branch=no_std#fc1f68f733f8cadb694c9994bcdad78b6f80f996"
 dependencies = [
  "ordered-float",
 ]
 
 [[package]]
-name = "embedded-alloc"
-version = "0.5.1"
+name = "emballoc"
+version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ddae17915accbac2cfbc64ea0ae6e3b330e6ea124ba108dada63646fd3c6f815"
+checksum = "3a1fd30811a003c891a368e0161ab9c4f6f298099a7b22b5f4a6ccdf4045e9f2"
 dependencies = [
- "critical-section",
- "linked_list_allocator",
-]
-
-[[package]]
-name = "linked_list_allocator"
-version = "0.10.5"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9afa463f5405ee81cdb9cc2baf37e08ec7e4c8209442b5d72c04cfb2cd6e6286"
-
-[[package]]
-name = "no_std_rp2040"
-version = "0.1.0"
-dependencies = [
- "edn-rs",
- "embedded-alloc",
+ "spin",
 ]
 
 [[package]]
@@ -62,4 +41,27 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a76df7075c7d4d01fdcb46c912dd17fba5b60c78ea480b475f2b6ab6f666584e"
 dependencies = [
  "num-traits",
+]
+
+[[package]]
+name = "pico-edn"
+version = "0.1.0"
+dependencies = [
+ "edn-rs",
+ "emballoc",
+]
+
+[[package]]
+name = "portable-atomic"
+version = "1.4.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "31114a898e107c51bb1609ffaf55a0e011cf6a4d7f1170d0015a165082c0338b"
+
+[[package]]
+name = "spin"
+version = "0.9.8"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "6980e8d7511241f8acf4aebddbb1ff938df5eebe98691418c4468d0b72a96a67"
+dependencies = [
+ "portable-atomic",
 ]

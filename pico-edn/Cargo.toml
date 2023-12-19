@@ -1,0 +1,26 @@
+[package]
+name = "pico-edn"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "picoedn"
+crate-type = ["staticlib"]
+
+[lints.rust]
+rust_2018_idioms = "warn"
+future-incompatible = "warn"
+
+[lints.clippy]
+pedantic = "warn"
+nursery = "warn"
+
+[dependencies]
+edn-rs = { git = "https://github.com/edn-rs/edn-rs.git", branch = "no_std", default-features = false, features = ["sets"] }
+emballoc = { version = "*", features = ["portable_atomic"] }
+
+[profile.dev]
+panic = "abort"
+
+[profile.release]
+panic = "abort"
