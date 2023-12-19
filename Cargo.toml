@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-edn-rs = { git = "https://github.com/Grinkers/edn-rs.git", branch = "no_std", default-features = false }
+edn-rs = { git = "https://github.com/edn-rs/edn-rs.git", branch = "no_std", default-features = false, features = ["sets"] }
 embedded-alloc = "0.5.1"
 
 [lib]

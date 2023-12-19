@@ -3,6 +3,12 @@
 version = 3
 
 [[package]]
+name = "autocfg"
+version = "1.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d468802bab17cbc0cc575e9b053f41e72aa36bfa6b7f55e3529ffa43161b97fa"
+
+[[package]]
 name = "critical-section"
 version = "1.1.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -11,7 +17,10 @@ checksum = "7059fff8937831a9ae6f0fe4d658ffabf58f2ca96aa9dec1c889f936f705f216"
 [[package]]
 name = "edn-rs"
 version = "0.17.4"
-source = "git+https://github.com/Grinkers/edn-rs.git?branch=no_std#a12fa4f3b7debbe83989f1189991839e04fe36d8"
+source = "git+https://github.com/edn-rs/edn-rs.git?branch=no_std#3fb72b01c6664a8e0454ad6dcac2c86027e49522"
+dependencies = [
+ "ordered-float",
+]
 
 [[package]]
 name = "embedded-alloc"
@@ -35,4 +44,22 @@ version = "0.1.0"
 dependencies = [
  "edn-rs",
  "embedded-alloc",
+]
+
+[[package]]
+name = "num-traits"
+version = "0.2.17"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "39e3200413f237f41ab11ad6d161bc7239c84dcb631773ccd7de3dfe4b5c267c"
+dependencies = [
+ "autocfg",
+]
+
+[[package]]
+name = "ordered-float"
+version = "4.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a76df7075c7d4d01fdcb46c912dd17fba5b60c78ea480b475f2b6ab6f666584e"
+dependencies = [
+ "num-traits",
 ]
