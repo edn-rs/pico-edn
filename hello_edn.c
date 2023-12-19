@@ -13,12 +13,12 @@ int main() {
     gpio_init(LED_PIN);
     gpio_set_dir(LED_PIN, GPIO_OUT);
 
-    char buf[40];
+    char buf[200];
     int count = 0;
     while (true) {
         sleep_ms(500);
         gpio_put(LED_PIN, 1);
-        sprintf(buf, "{:count %d :foo #{1 2 3 2 42}}", count);
+        sprintf(buf, "{:count %d :foo #{1 2 3 2 42} :bar 9042.123}", count);
         some_edn(buf);
         count++;
         sleep_ms(500);

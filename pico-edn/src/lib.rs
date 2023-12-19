@@ -8,15 +8,14 @@ use alloc::ffi::CString;
 use alloc::string::ToString;
 use core::ffi::CStr;
 use core::panic::PanicInfo;
+use core::str::FromStr;
+
+use edn_rs::{Edn, EdnError};
 
 #[panic_handler]
 fn panic(_panic: &PanicInfo<'_>) -> ! {
     loop {}
 }
-
-use core::str::FromStr;
-
-use edn_rs::{Edn, EdnError};
 
 extern "C" {
     fn printf(format: *const i8, ...) -> i32;
