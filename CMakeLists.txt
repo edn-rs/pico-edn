@@ -23,7 +23,7 @@ add_dependencies(hello_edn rustlib)
 # Pull in our pico_stdlib which aggregates commonly used features
 target_link_libraries(
   hello_edn
-  pico_stdlib
+  pico_stdlib hardware_adc
   ${CMAKE_SOURCE_DIR}/pico-edn/target/thumbv6m-none-eabi/release/libpicoedn.a
   )
 
