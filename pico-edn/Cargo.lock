@@ -11,7 +11,7 @@ checksum = "d468802bab17cbc0cc575e9b053f41e72aa36bfa6b7f55e3529ffa43161b97fa"
 [[package]]
 name = "edn-rs"
 version = "0.17.4"
-source = "git+https://github.com/edn-rs/edn-rs.git?branch=no_std#fc1f68f733f8cadb694c9994bcdad78b6f80f996"
+source = "git+https://github.com/edn-rs/edn-rs.git#87ae2a1cf349c55d50c0e98fd809dea0f5627802"
 dependencies = [
  "ordered-float",
 ]
