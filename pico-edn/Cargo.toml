@@ -16,7 +16,8 @@ pedantic = "warn"
 nursery = "warn"
 
 [dependencies]
-edn-rs = { git = "https://github.com/edn-rs/edn-rs.git", default-features = false, features = ["sets"] }
+edn-rs = { git = "https://github.com/grinkers/edn-rs.git", default-features = false, features = ["sets"] }
+edn-derive = { git = "https://github.com/grinkers/edn-derive.git", branch = "no_std" }
 emballoc = { version = "*", features = ["portable_atomic"] }
 
 [profile.dev]

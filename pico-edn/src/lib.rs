@@ -10,8 +10,9 @@ use core::ffi::CStr;
 use core::panic::PanicInfo;
 use core::str::FromStr;
 
-use edn_rs::{Edn, EdnError};
+use edn_rs::Edn;
 
+use edn_derive::{Deserialize, Serialize};
 #[panic_handler]
 fn panic(_panic: &PanicInfo<'_>) -> ! {
     loop {}
@@ -23,6 +24,22 @@ extern "C" {
 
 #[global_allocator]
 static ALLOCATOR: emballoc::Allocator<4096> = emballoc::Allocator::new();
+
+#[derive(Serialize, Deserialize, Debug, PartialEq, Clone)]
+struct Point {
+    x: i32,
+    y: i32,
+}
+
+#[no_mangle]
+pub extern "C" fn both_ways() {
+    let point = Point { x: 1, y: 2 };
+
+    let serialized = edn_rs::to_string(&point);
+    let deserialized: Point = edn_rs::from_str(&serialized).unwrap();
+
+    assert_eq!(point, deserialized);
+}
 
 #[no_mangle]
 pub extern "C" fn some_edn(edn: *const i8) {
